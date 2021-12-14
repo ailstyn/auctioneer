@@ -1,6 +1,4 @@
-import discord
-import time
-import datetime
+import discord, time, datetime
 from discord.ext import commands
 
 # Create class that acts as a countdown
@@ -35,18 +33,18 @@ s = 0
 #s = input("Enter the time in seconds: ")
 countdown(int(h), int(m), int(s))
 
-TOKEN = os.getenv('DISCORD_TOKEN')
-
+client = discord.Client()
 client = commands.Bot(command_prefix = "!")
 
 @client.event()
-async def on_message("howto"):
-    await ctx.send(f"name, keyword, restriction, duration (days), end time, "
-        f"threshold time (hours), item link. Class/race restrictions and the "
-        f"item link must be wrapped in quotes."
-        )
+async def on_message(message):
+    if message.content == ('howto'):
+        await message.channel.send(f"name, keyword, restriction, duration (days), end time, "
+            f"threshold time (hours), item link. Class/race restrictions and the "
+            f"item link must be wrapped in quotes."
+            )
 
-@bot.command()
+@bot.command(newauction)
 async def newauction(ctx, name, keyword, restriction, endday, endtime, threshold, itemlink):
     await ctx.send(f"You are making a new auction for {name}. "
         f"Members can bid by using the {keyword} keyword. "
@@ -67,4 +65,4 @@ async def newauction(ctx, name, keyword, restriction, endday, endtime, threshold
         f"/n*This channel should be bids only - questions and discussion in #raid-chat-green")
 
 
-client.run(TOKEN)
+client.run('OTIwMzgyNTA3NTU4NTEwNjQy.YbjjAQ.wgei6nA-bM7DQZilOAdlQ_9Au44')
