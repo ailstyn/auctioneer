@@ -57,4 +57,4 @@ async def newauction(ctx, name, keyword, restriction, endday, endtime, threshold
         f"/n*This channel should be bids only - questions and discussion in #raid-chat-green")
 
 
-client.run('OTIwMzgyNTA3NTU4NTEwNjQy.YbjjAQ.wgei6nA-bM7DQZilOAdlQ_9Au44')
+client.run('TOKEN')
